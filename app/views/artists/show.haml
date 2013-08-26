@@ -1,0 +1,7 @@
+%h3 Artist
+= @artist.name
+= @artist.description
+
+%h3 Albums
+- @albums.each do |album|
+  = album.name
