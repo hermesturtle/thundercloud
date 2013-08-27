@@ -3,10 +3,6 @@ class StaticPagesController < ApplicationController
 
   end
 
-  def blog
-
-  end
-
   def about
 
   end
