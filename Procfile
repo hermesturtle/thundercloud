@@ -1,2 +1,2 @@
 pg: postgres -D /usr/local/var/postgres
-web: rails s -p 3000
+web: rails s -p $PORT
