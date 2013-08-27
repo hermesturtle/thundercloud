@@ -1,3 +1,6 @@
-- @artists.each do |artist|
-  =link_to artist.name, artist
-  = artist.description
+.artists-wrapper
+  - @artists.each do |artist|
+    .artist
+      .image= link_to(image_tag(artist.image.url(:medium)), artist_path(artist))
+      .name= link_to artist.name, artist
+      .description= artist.description

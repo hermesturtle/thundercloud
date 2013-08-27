@@ -1,3 +1,21 @@
+@mixin font-face($family, $file-name, $weight) {
+  @font-face {
+      font-family: $family;
+      src: url("#{$file-name}.eot");
+      src: url("#{$file-name}.eot?#iefix") format('embedded-opentype'),
+           url("#{$file-name}.woff") format('woff'),
+           url("#{$file-name}.ttf") format('truetype');
+      font-weight: $weight;
+      font-style: normal;
+
+  }
+}
+
+@include font-face("Lato",  "lato-light",   200);
+@include font-face("Lato",  "lato-regular", 400);
+@include font-face("Lato",  "lato-bold",    600);
+@include font-face("Lato",  "lato-black",   800);
+
 @font-face {
   font-family: 'Futurist';
   src:font-url('FUTRFW.TTF') format('truetype');
