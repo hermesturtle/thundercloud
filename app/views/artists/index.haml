@@ -1,5 +1,6 @@
-= stylesheet_link_tag "artists"
-- @artists.each do |artist|
-  .artist
-    .name= link_to artist.name, artist
-    .description= artist.description
+.artists-wrapper
+  - @artists.each do |artist|
+    .artist
+      .image= link_to(image_tag(artist.image.url(:medium)), artist_path(artist))
+      .name= link_to artist.name, artist
+      .description= artist.description
