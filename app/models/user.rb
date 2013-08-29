@@ -20,5 +20,6 @@ class User < ActiveRecord::Base
     cart.order_total = 0
     cart.user_id = id
     cart.save
+    save
   end
 end
