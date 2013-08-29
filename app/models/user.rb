@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
   after_create :attach_cart
 
   def attach_cart
-    self.cart = Cart.create
+    cart = Cart.new
+    cart.user_id = id
+    cart.order_total = 0
+    cart.save
   end
 end
