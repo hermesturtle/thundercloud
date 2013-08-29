@@ -8,6 +8,6 @@ Thundercloud::Application.routes.draw do
 
   resources :artists
   resources :products, only: [:index, :show]
-  resources :line_items, only: [:create]
+  resources :line_items, only: [:create, :destroy]
   resources :carts, only: [:show]
 end
