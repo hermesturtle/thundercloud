@@ -10,8 +10,10 @@ ruby '2.0.0'
 gem 'pg'
 gem 'haml'
 gem 'foreman'
+gem 'devise'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'figaro'
 
 # Gems used only for assets and not required
 # in production environments by default.
