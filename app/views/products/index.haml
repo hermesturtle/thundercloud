@@ -2,7 +2,9 @@
   .cart
     = link_to(fa_icon("shopping-cart", class: "cart-icon"), cart_path(current_user.cart))
     = link_to "(#{price_in_dollars(current_user.cart.order_total)})", cart_path(current_user.cart), class: "cart-total"
-
+  = link_to "Log Out", destroy_user_session_path, method: :delete, class: "log-out"
+- else
+  = link_to "Log In", new_user_session_path, class: "log-in"
 - @products.each do |product|
   .product
     .product-image= link_to(image_tag(product.image.url(:medium)), product_path(product))
