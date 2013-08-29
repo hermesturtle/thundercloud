@@ -1,0 +1,6 @@
+- @cart.line_items.each do |item|
+  = item.product.name
+  = price_in_dollars(item.price)
+
+Cart Total:
+= price_in_dollars @cart.order_total
