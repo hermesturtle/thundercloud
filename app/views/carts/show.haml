@@ -1,6 +1,22 @@
-- @cart.line_items.each do |item|
-  = item.product.name
-  = price_in_dollars(item.price)
+- if @cart.line_items.empty?
+  .empty There are no items in your cart.
 
-Cart Total:
-= price_in_dollars @cart.order_total
+- else
+  .order-list
+    %table
+      %th
+      %th.name Name
+      %th.quantity Quantity
+      %th Price
+      - @cart.line_items.each do |item|
+        %tr
+          %td.remove-item= link_to 'x', line_item_path(item), method: :delete
+          %td.name= item.product.name
+          %td.quantity= item.quantity
+          %td= price_in_dollars(item.price)
+
+      %tr
+        %td
+        %td
+        %td.quantity Total
+        %td= price_in_dollars @cart.order_total
