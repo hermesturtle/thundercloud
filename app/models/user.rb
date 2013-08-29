@@ -9,14 +9,16 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
-  belongs_to :cart
+  belongs_to :cart, dependent: :destroy
 
   after_create :attach_cart
 
+  private
+
   def attach_cart
-    cart = Cart.new
-    cart.user_id = id
+    create_cart
     cart.order_total = 0
+    cart.user_id = id
     cart.save
   end
 end
