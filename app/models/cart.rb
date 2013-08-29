@@ -8,6 +8,7 @@ class Cart < ActiveRecord::Base
     line_items.each do |item|
       total += item.price
     end
-    total
+    self.order_total = total
+    save
   end
 end
