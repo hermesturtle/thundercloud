@@ -143,9 +143,6 @@ ActiveAdmin.setup do |config|
   #   config.register_javascript 'my_javascript.js'
   #
 
-  config.register_stylesheet 'admin.sass'
-
-
   # == CSV options
   #
   # Set the CSV builder separator (default is ",")
