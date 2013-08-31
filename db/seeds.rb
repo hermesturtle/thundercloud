@@ -6,5 +6,7 @@ me_lacey_flowers = Artist.create(name: "Me Lacey Flowers", description: "Psyched
 evan_hemsley = Artist.create(name: "Evan Hemsley", description: "Noise from the popocalypse.")
 evan_hemsley.albums << Album.create(name: "Eroder", description: "Stuff.")
 
-evan_admin = User.create(email: "evan@thundercloudrecords.com", password: ENV["EVAN_PASSWORD"])
+evan_admin = User.new(email: "evan@thundercloudrecords.com", password: ENV["EVAN_PASSWORD"], password_confirmation: ENV["EVAN_PASSWORD"])
+evan_admin.skip_confirmation!
+evan_admin.save!
 evan_admin.add_role(:admin)
