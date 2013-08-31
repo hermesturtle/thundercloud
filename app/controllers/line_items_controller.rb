@@ -1,4 +1,6 @@
 class LineItemsController < ApplicationController
+  load_and_authorize_resource
+
   def create
     product = Product.find(params[:product_id])
     if LineItem.construct_from_product(product, current_user).save
