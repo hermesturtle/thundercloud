@@ -23,6 +23,19 @@ Thundercloud::Application.configure do
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
+  config.action_mailer.default_url_options = { host: 'localhost:5100' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.zoho.com",
+    :port                 => 465,
+    :user_name            => "noreply@thundercloudrecords.com",
+    :password             => ENV["EMAIL_PASSWORD"],
+    :authentication       => 'login',
+    :ssl                  => true,
+    :tls                  => true,
+    :enable_starttls_auto => true
+  }
+
   # Specifies the header that your server uses for sending files
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
