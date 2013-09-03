@@ -1,7 +1,8 @@
-%h3 Artist
-= @artist.name
-= @artist.description
+.artist-show
+  .image= image_tag @artist.image.url(:large)
+  .name= @artist.name
+  .desc= @artist.description
 
-%h3 Albums
+%h2 Albums
 - @albums.each do |album|
   = album.name
