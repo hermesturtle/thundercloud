@@ -4,5 +4,22 @@
   .desc= @artist.description
 
 %h2 Albums
-- @albums.each do |album|
-  = album.name
+.artist-albums
+  - unless @albums.empty?
+    .album
+      - @albums.each do |album|
+        .image= image_tag album.image.url(:medium)
+        .name= album.name
+  - else
+    %p None yet, but coming soon!
+
+%h2 Merch
+.artist-products
+  - unless @products.empty?
+    .artist-product
+      - @products.each do |product|
+        .image= image_tag product.image.url(:medium)
+        .name= product.name
+        .price= price_in_dollars(product.price)
+  - else
+    %p None yet, but coming soon!

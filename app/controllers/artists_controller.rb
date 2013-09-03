@@ -8,6 +8,7 @@ class ArtistsController < ApplicationController
   def show
     @artist = Artist.find(params[:id])
     @albums = @artist.albums
+    @products = @artist.products
   end
 
   def new

@@ -17,6 +17,13 @@ ActiveAdmin.register Artist do
         column :name
       end
     end
+    panel "Merch" do
+      table_for artist.products do |product|
+        column :name
+        column :description
+        column :price
+      end
+    end
   end
 
   form do |f|

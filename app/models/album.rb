@@ -1,5 +1,5 @@
 class Album < ActiveRecord::Base
-  attr_accessible :name, :description
+  attr_accessible :name, :description, :image, :artist_id
 
   belongs_to :artist
 
