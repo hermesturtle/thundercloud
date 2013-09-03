@@ -12,8 +12,12 @@ class LineItemsController < ApplicationController
 
   def destroy
     line_item = LineItem.find(params[:id])
-    cart = line_item.cart
-    line_item.destroy
-    redirect_to cart_path(cart)
+    if line_item.itemable_type == "Cart"
+      cart = line_item.itemable
+      line_item.destroy
+      redirect_to cart_path(cart)
+    else
+      redirect_to root_path, notice: "You cannot delete line items from an order."
+    end
   end
 end

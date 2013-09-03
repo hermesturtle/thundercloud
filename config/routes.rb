@@ -11,5 +11,10 @@ Thundercloud::Application.routes.draw do
   resources :artists
   resources :products, only: [:index, :show]
   resources :line_items, only: [:create, :destroy]
-  resources :carts, only: [:show]
+  resources :carts, only: [:show] do
+    member do
+      get :checkout
+    end
+  end
+  resources :orders, only: [:show]
 end

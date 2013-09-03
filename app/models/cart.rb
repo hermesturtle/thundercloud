@@ -1,7 +1,7 @@
 #orders are all done in cent values so we can use integers
 class Cart < ActiveRecord::Base
   belongs_to :user
-  has_many :line_items, dependent: :destroy
+  has_many :line_items, as: :itemable, dependent: :destroy
 
   def update_total
     total = 0

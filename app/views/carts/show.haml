@@ -20,3 +20,5 @@
         %td
         %td.quantity Total
         %td= price_in_dollars @cart.order_total
+
+  .checkout-button= link_to "Checkout", checkout_cart_path

@@ -11,6 +11,9 @@ class Ability
       can :read, Product
       can :read, Artist
       can :read, Album
+      can :read, Order do |order|
+        order.user_id == user.id
+      end
       can :read, Cart do |cart|
         cart == user.cart
       end

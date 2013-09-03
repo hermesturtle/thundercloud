@@ -9,6 +9,7 @@ ActiveAdmin.register Artist do
   show do |artist|
     attributes_table do
       row :name
+      row :description
       row :image do image_tag(artist.image.url) end
     end
     panel "Albums" do

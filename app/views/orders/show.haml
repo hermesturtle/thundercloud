@@ -1,0 +1,17 @@
+%h2 Order Confirmation
+
+.order-list
+  %table
+    %th.name Name
+    %th.quantity Quantity
+    %th Price
+    - @order.line_items.each do |item|
+      %tr
+        %td.name= item.product.name
+        %td.quantity= item.quantity
+        %td= price_in_dollars(item.price)
+
+    %tr
+      %td
+      %td.quantity Total
+      %td= price_in_dollars @order.total
